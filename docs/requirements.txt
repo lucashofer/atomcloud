@@ -19,3 +19,4 @@ uncertainties
 jax
 jaxfit
 pandas
+atomcloud
