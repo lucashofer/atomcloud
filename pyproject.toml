@@ -1,0 +1,42 @@
+[project]
+name = "atomcloud"
+version = "0.0.1"
+description = "Conventional method for fitting atom cloud, BECs and bimodal atom cloud/BEC distributions in 1D and 2D."
+readme = "pypi.md"
+requires-python ="~=3.9"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Lucas Hofer", email = ""},
+]
+keywords = ["BEC", "fitting", "deep-learning", "equinox"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+urls = {repository = "https://github.com/lucashofer/atomcloud" }
+dependencies = ["numpy", "pandas", "scipy", "matplotlib", "tabulate", "uncertainties"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+include = ["atomcloud/*"] 
+
+[tool.ruff]
+select = ["E", "F", "I001"]
+ignore = ["E402", "E721", "E731", "E741", "F722", "F403"]
+ignore-init-module-imports = true
+fixable = ["I001", "F401"]
+
+[tool.ruff.isort]
+combine-as-imports = true
+lines-after-imports = 2
+extra-standard-library = ["typing_extensions"]
+order-by-type = false

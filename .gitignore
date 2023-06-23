@@ -1,0 +1,12 @@
+# Distribution / packaging
+build/
+dist/
+misc/
+*.egg-info/
+__pycache__/
+*.vscode
+*.ruff_cache
+*.pytest_cache
+venv/
+examples/
+
