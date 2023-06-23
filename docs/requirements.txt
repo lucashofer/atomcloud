@@ -16,3 +16,6 @@ matplotlib
 scipy
 tabulate
 uncertainties
+jax
+jaxfit
+pandas
