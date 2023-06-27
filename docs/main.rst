@@ -35,7 +35,7 @@ We have a few tutorial notebooks including:
 - `Multi-Function Basics <https://colab.research.google.com/github/lucashofer/atomcloud/blob/main/docs/notebooks/Multi_Functions.ipynb>`__
 - `Multi-Function Fits <https://colab.research.google.com/github/lucashofer/atomcloud/blob/main/docs/notebooks/Multi_Function_Fits.ipynb>`__
 - `Sum Fits <https://colab.research.google.com/github/lucashofer/atomcloud/blob/main/docs/notebooks/Sum_Fits.ipynb>`__
-- `Multi-Level-Fits <https://colab.research.google.com/github/lucashofer/atomcloud/blob/main/docs/notebooks/Multi_Level Fits.ipynb>`__
+- `Multi-Level-Fits <https://colab.research.google.com/github/lucashofer/atomcloud/blob/main/docs/notebooks/Multi_Level_Fits.ipynb>`__
 
 
 
