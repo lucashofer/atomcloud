@@ -79,11 +79,8 @@ class Registry(Iterable[Tuple[str, Any]]):
         return name in self._obj_map
 
     def __repr__(self) -> str:
-        table_headers = ["Names", "Objects"]
-        table = tabulate(
-            self._obj_map.items(), headers=table_headers, tablefmt="fancy_grid"
-        )
-        return "Registry of {}:\n".format(self._name) + table
+        items = "\n".join(f"{k}: {v}" for k, v in self._obj_map.items())
+        return f"Registry of {self._name}:\n{items}"
 
     def __iter__(self) -> Iterator[Tuple[str, Any]]:
         return iter(self._obj_map.items())

@@ -8,10 +8,16 @@ from typing import Iterable
 
 import numpy as np
 
+from scipy.special import spence as scipy_spence
+try:
+    from jax.scipy.special import spence as jax_spence
+except ImportError:
+    pass
+
 from atomcloud.analysis import rescale_2d_params
 from atomcloud.common import registry
 from atomcloud.functions.func_base import FunctionBase
-from atomcloud.functions.jax_funcs.spence import create_polylog2d
+# from atomcloud.functions.jax_funcs.spence import create_polylog2d
 from atomcloud.utils import fit_utils, uncertain_utils as ucalcs
 
 
@@ -19,6 +25,17 @@ from atomcloud.utils import fit_utils, uncertain_utils as ucalcs
 
 
 FUNCTIONS2D = registry.Registry("functions2d")
+
+
+def get_polylog2(anp):
+    """
+    #check if anp is jnp or np and return the polylog function for gamma=2 using
+    #the appropriate module
+    """
+    if anp is np:
+        return lambda x: scipy_spence(1 - x)
+    else:
+        return lambda x: jax_spence(1 - x)
 
 
 def general_lab_widths(px, py, theta, key="sig"):
@@ -213,7 +230,8 @@ class EnhancedBose2D(Gaussian2D):
         which is just spence(1-z) for the 2D case is used
         (see jaxfuncs.spence.py). Also utilizes the gaussian2d function from
         the Gaussian2D class which is inherited."""
-        polylog2d = create_polylog2d(anp)
+        # polylog2d = create_polylog2d(anp)
+        polylog2d = get_polylog2(anp)
         coordinate_transformation2D = self.create_coord_funcs(anp)
         gaussian2d = self.create_gaussian2d(anp)
 
@@ -252,7 +270,7 @@ class FixedEnhancedBose2D(Gaussian2D):
         """Creates the 2D fixed enhanced Bose fitting function see the
         non-fixed version for more details of the polylog function and
         gaussian2d function."""
-        polylog2d = create_polylog2d(anp)
+        polylog2d = get_polylog2(anp)
         gaussian2d = self.create_gaussian2d(anp)
         coordinate_transformation2D = self.create_coord_funcs(anp)
 
