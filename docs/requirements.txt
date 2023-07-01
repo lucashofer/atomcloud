@@ -14,9 +14,9 @@ sphinx-rtd-theme
 numpy
 matplotlib
 scipy
-tabulate
+pandas
 uncertainties
+jaxlib
 jax
 jaxfit
-pandas
 atomcloud
