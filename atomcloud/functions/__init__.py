@@ -9,7 +9,6 @@ from .func_base import *
 from .funcs_1d import *
 from .funcs_2d import *
 from .funcs_sumfit import *
-from .jax_funcs import *
 from .multi_base import *
 from .multi_funcs import *
 

@@ -8,7 +8,7 @@ license = {file = "LICENSE"}
 authors = [
   {name = "Lucas Hofer", email = ""},
 ]
-keywords = ["BEC", "fitting", "deep-learning", "equinox"]
+keywords = ["BEC", "fitting", "deep-learning"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -20,7 +20,7 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Physics",
 ]
 urls = {repository = "https://github.com/lucashofer/atomcloud" }
-dependencies = ["numpy", "pandas", "scipy", "matplotlib", "tabulate", "uncertainties"]
+dependencies = ["numpy", "pandas", "scipy", "matplotlib", "uncertainties"]
 
 [build-system]
 requires = ["hatchling"]
