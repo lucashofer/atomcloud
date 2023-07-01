@@ -1,5 +1,6 @@
 # Distribution / packaging
 build/
+scripts/
 dist/
 misc/
 *.egg-info/

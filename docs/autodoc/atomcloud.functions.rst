@@ -1,14 +1,6 @@
 atomcloud.functions package
 ===========================
 
-Subpackages
------------
-
-.. toctree::
-   :maxdepth: 4
-
-   atomcloud.functions.jax_funcs
-
 Submodules
 ----------
 

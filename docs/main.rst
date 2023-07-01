@@ -50,7 +50,7 @@ AtomCloud is written in Python and can be installed via pip
 
 
 In order to utilize the GPU accelerated fitting, you will need to install 
-JAX and JAXFit as without it AtomCloud will default to CPU fitting using SciPy. JAXFit is written in pure Python and is based on the JAX package. JAX therefore needs to be installed before installing JAXFit via pip. JAX installation requires a bit of effort since it is optimized for the computer hardware you'll be using (GPU vs. CPU). 
+JAX >= 0.4.4 and JAXFit >= 0.0.5 as without them AtomCloud will default to CPU fitting using SciPy. JAXFit is written in pure Python and is based on the JAX package. JAX therefore needs to be installed before installing JAXFit via pip. JAX installation requires a bit of effort since it is optimized for the computer hardware you'll be using (GPU vs. CPU). 
 
 Installing JAX on Linux is natively supported by the JAX team and instructions to do so can be found `here <https://github.com/google/jax#installation>`_. 
 
@@ -78,54 +78,47 @@ and CUDnn. We recommend using an Anaconda environment to do all this installatio
 First make sure your GPU driver is CUDA compatible and that the latest NVIDIA 
 driver has been installed.
 
-To create a Conda environment with Python 3.9 open up Anaconda Prompt and do the 
+First, create a Conda environment with Python 3.11 open up Anaconda Prompt and do the 
 following:
 
 ::
 
-    conda create -n jaxenv python=3.9
+    conda create -n jaxenv python=3.11
 
-Now activate the environment
+For Windows, Python 3.11 is required to install the lastest GPU compatible pre-built JAX wheel. 
+Now ;et's activate the environment
 
 ::
 
     conda activate jaxenv
 
-Since all the the pre-built Windows wheels rely on CUDA 11.1 and CUDnn 8.2, we 
+Since all the pre-built Windows wheels for JAX 0.4.11 rely on CUDA >= 11.7 and CUDnn >= 8.6, we 
 use conda to install these as follows
 
 ::
 
-    conda install -c conda-forge cudatoolkit=11.1 cudnn=8.2.0
-
-However, this toolkit doesn't include the developer tools which JAX also need 
-and therefore these need to be separately installed using
-
-::
-
-    conda install -c conda-forge cudatoolkit-dev
+    conda install -c conda-forge cudatoolkit=11.7 cudnn=8.8.0 cudatoolkit-dev
 
 Pip installing pre-built JAX wheel
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Pick a jaxlib wheel from the CloudHan repo's list 
-of `pre-built wheels <https://whls.blob.core.windows.net/unstable/index.html>`_. 
-We recommend the latest build (0.3.14) as we've had issues with earlier 
-versions. The Python version of the wheel needs to correspond to the conda 
-environment's Python version (e.g. cp39 corresponds to Python 3.9 for our 
-example) and pip install it. Additionally, you can pick a GPU version (CUDA111) 
+of `pre-built wheels <https://whls.blob.core.windows.net/unstable/index.html>`_ and pip install it.
+We recommend the latest build (0.4.11) as versions below 0.4.4 won't work with AtomCloud. The Python 
+version of the wheel needs to correspond to the conda environment's Python version (e.g. cp311 
+corresponds to Python 3.11 for our example). Additionally, you can pick a GPU version 
 or CPU only version, but we pick a GPU version below.
 
 ::
 
-    pip install https://whls.blob.core.windows.net/unstable/cuda111/jaxlib-0.3.14+cuda11.cudnn82-cp39-none-win_amd64.whl
+    pip install https://whls.blob.core.windows.net/unstable/cuda/jaxlib-0.4.11+cuda.cudnn86-cp311-cp311-win_amd64.whl
 
 Next, install the JAX version corresponding to the jaxlib library (a list of 
-jaxlib and JAX releases can be found `here <https://github.com/google/jax/blob/main/CHANGELOG.md>`_)
+jaxlib and JAX releases can be found `here <https://github.com/google/jax/blob/main/CHANGELOG.md>`_) as well as jaxfit
 
 ::
 
-    pip install jax==0.3.14
+    pip install jax==0.4.11 jaxfit
 
 
 

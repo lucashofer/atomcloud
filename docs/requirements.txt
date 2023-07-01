@@ -16,7 +16,7 @@ matplotlib
 scipy
 pandas
 uncertainties
-jaxlib
-jax
-jaxfit
+jaxlib>=0.4.4
+jax>=0.4.4
+jaxfit>=0.0.5
 atomcloud
