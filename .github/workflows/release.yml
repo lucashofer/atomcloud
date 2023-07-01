@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Release
-        uses: lucashofer/action_update_python_project
+        uses: lucashofer/action_update_python_project@main
         with:
             python-version: "3.11"
             test-script: |
